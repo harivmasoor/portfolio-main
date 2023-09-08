@@ -1,6 +1,7 @@
 # example netlify.toml
+
 [build]
-  command = "npm run build"
+  # command = "npm run build"   <-- This line is commented out
   functions = "netlify/functions"
   publish = ""
 
@@ -19,3 +20,4 @@
   #  publish = "dist" # Folder with the static content for _redirect file
 
   ## more info on configuring this file: https://docs.netlify.com/configure-builds/file-based-configuration/
+
