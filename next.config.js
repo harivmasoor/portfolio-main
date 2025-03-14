@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/portfolio-main' : '',
-  images: {
-    unoptimized: true,
-  },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio-main' : '',
+  // The GitHub Actions workflow will automatically set the correct basePath
+  // basePath and assetPrefix will be injected by GitHub's configure-pages action
+  
   // Trailing slash ensures proper relative path resolution
   trailingSlash: true,
   
