@@ -13,12 +13,12 @@ const nextConfig = {
   // Trailing slash ensures proper relative path resolution
   trailingSlash: true,
   
-  // Disable ESLint during production builds
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-  },
+  // Enable ESLint during production builds
+  // eslint: {
+  //   // Warning: This allows production builds to successfully complete even if
+  //   // your project has ESLint errors.
+  //   ignoreDuringBuilds: true,
+  // },
   
   // Disable TypeScript type checking during builds
   typescript: {
