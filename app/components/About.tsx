@@ -30,11 +30,9 @@ const About: React.FC = () => {
                   cursor: 'pointer'
                 }}
                 onMouseOver={(e) => {
-                  // @ts-ignore - TypeScript doesn't know about style on HTMLImageElement
                   e.currentTarget.style.transform = 'scale(1.03)';
                 }}
                 onMouseOut={(e) => {
-                  // @ts-ignore
                   e.currentTarget.style.transform = 'scale(1)';
                 }}
               />
@@ -86,15 +84,11 @@ const About: React.FC = () => {
                     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   }}
                   onMouseOver={(e) => {
-                    // @ts-ignore
                     e.currentTarget.style.transform = 'translateY(-5px)';
-                    // @ts-ignore
                     e.currentTarget.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.15)';
                   }}
                   onMouseOut={(e) => {
-                    // @ts-ignore
                     e.currentTarget.style.transform = 'translateY(0)';
-                    // @ts-ignore
                     e.currentTarget.style.boxShadow = '0 3px 10px rgba(0, 0, 0, 0.1)';
                   }}
                 />

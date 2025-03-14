@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import GHImage from './GHImage';
 
 // Add global jQuery type declaration
 declare global {
@@ -180,11 +178,12 @@ const Projects: React.FC = () => {
                   </span>
                 </div>
                 <div className="thumb" style={thumbStyle}>
-                  <img 
-                    src="/images/projects/BudgetBuddy1.gif" 
-                    alt="MERN Stack CodeMark Project" 
-                    style={imgStyle}
-                  />
+                  <div style={{
+                    ...imgStyle,
+                    backgroundImage: "url('/images/projects/BudgetBuddy1.gif')", 
+                    backgroundSize: "cover",
+                    backgroundPosition: "center top"
+                  }}></div>
                   <div className="mask"></div>
                 </div>
               </div>
@@ -203,9 +202,25 @@ const Projects: React.FC = () => {
               </div>
               <h3>Smart notes for code</h3>
               <p>Led 4 Fullstack developers to create a Finance Application that allows the user to view their income streams and daily expenses. BudgetBuddy cleverly allows the user to set budgets for popular expense categories and create savings goals for big events and life decisions</p>
-              <img src="/images/projects/BudgetBuddyImage.png" alt="CodeMark Desktop Mockup" />
+              <div style={{
+                width: '100%',
+                height: '300px',
+                backgroundImage: "url('/images/projects/BudgetBuddyImage.png')",
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                margin: '20px 0'
+              }} aria-label="CodeMark Desktop Mockup"></div>
               <div className="spacer" data-height="64"></div>
-              <img className="inline-mockup-img" src="/images/projects/BudgetBuddyMobile.jpeg" alt="CodeMark Mobile Mockup" />
+              <div style={{
+                width: '100%',
+                height: '300px',
+                backgroundImage: "url('/images/projects/BudgetBuddyMobile.jpeg')",
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                margin: '20px 0'
+              }} aria-label="CodeMark Mobile Mockup" className="inline-mockup-img"></div>
               <ul className="project-bullets">
                 <li>
                   Led a team of 3 engineers utilizing the feature branch workflow minimizing potential merge conflicts
@@ -243,11 +258,12 @@ const Projects: React.FC = () => {
                   </span>
                 </div>
                 <div className="thumb" style={thumbStyle}>
-                  <img 
-                    src="/images/projects/localVoices.gif" 
-                    alt="Full-Stack 5000px Project" 
-                    style={imgStyle}
-                  />
+                  <div style={{
+                    ...imgStyle,
+                    backgroundImage: "url('/images/projects/localVoices.gif')", 
+                    backgroundSize: "cover",
+                    backgroundPosition: "center top"
+                  }}></div>
                   <div className="mask"></div>
                 </div>
               </div>
@@ -260,7 +276,15 @@ const Projects: React.FC = () => {
               <p>
                 A Nextdoor clone focused on connecting neighbors to discuss community issues
               </p>
-              <img src="/images/projects/localVoices.gif" alt="LocalVoices Mockup" />
+              <div style={{
+                width: '100%',
+                height: '300px',
+                backgroundImage: "url('/images/projects/localVoices.gif')",
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                margin: '20px 0'
+              }} aria-label="LocalVoices Mockup"></div>
               <h3>Features</h3>
               <ul className="project-bullets">
                 <li>
@@ -302,11 +326,12 @@ const Projects: React.FC = () => {
                   </span>
                 </div>
                 <div className="thumb" style={thumbStyle}>
-                  <img 
-                    src="/images/projects/podify.gif" 
-                    alt="Podify Project" 
-                    style={imgStyle}
-                  />
+                  <div style={{
+                    ...imgStyle,
+                    backgroundImage: "url('/images/projects/podify.gif')", 
+                    backgroundSize: "cover",
+                    backgroundPosition: "center top"
+                  }}></div>
                   <div className="mask"></div>
                 </div>
               </div>
@@ -314,7 +339,15 @@ const Projects: React.FC = () => {
             <div id="podify-dialog" className="white-popup zoom-anim-dialog mfp-hide">
               <h1>Podify</h1>
               <h5>React.js, MongoDB, Express, Node.js, AWS S3, HTML5, CSS3</h5>
-              <img src="/images/projects/Podify.png" alt="Podify Screenshot" />
+              <div style={{
+                width: '100%',
+                height: '300px',
+                backgroundImage: "url('/images/projects/Podify.png')",
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                margin: '20px 0'
+              }} aria-label="Podify Screenshot"></div>
               <h3>Podcast Streaming Platform</h3>
               <p>
                 A podcast streaming platform that allows users to discover, listen to, and subscribe to their favorite podcasts.
@@ -323,7 +356,7 @@ const Projects: React.FC = () => {
               <h3>Features</h3>
               <ul className="project-bullets">
                 <li>
-                  Built a responsive audio player with playback controls using React's audio API
+                  Built a responsive audio player with playback controls using React&apos;s audio API
                 </li>
                 <li>
                   Implemented podcast discovery with advanced search and filtering capabilities
@@ -361,11 +394,12 @@ const Projects: React.FC = () => {
                   </span>
                 </div>
                 <div className="thumb" style={thumbStyle}>
-                  <img 
-                    src="/images/projects/HabitCrusher.gif" 
-                    alt="HabitCrusher Project" 
-                    style={imgStyle}
-                  />
+                  <div style={{
+                    ...imgStyle,
+                    backgroundImage: "url('/images/projects/HabitCrusher.gif')", 
+                    backgroundSize: "cover",
+                    backgroundPosition: "center top"
+                  }}></div>
                   <div className="mask"></div>
                 </div>
               </div>
@@ -373,7 +407,15 @@ const Projects: React.FC = () => {
             <div id="habitcrusher-dialog" className="white-popup zoom-anim-dialog mfp-hide">
               <h1>HabitCrusher</h1>
               <h5>React.js, Redux, LocalStorage, HTML5, CSS3, Chart.js</h5>
-              <img src="/images/projects/HabitCrusher.jpeg" alt="HabitCrusher Screenshot" />
+              <div style={{
+                width: '100%',
+                height: '300px',
+                backgroundImage: "url('/images/projects/HabitCrusher.jpeg')",
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                margin: '20px 0'
+              }} aria-label="HabitCrusher Screenshot"></div>
               <h3>Habit Tracking Application</h3>
               <p>
                 A powerful habit tracking application designed to help users build positive habits and break negative ones.
@@ -420,11 +462,12 @@ const Projects: React.FC = () => {
                   </span>
                 </div>
                 <div className="thumb" style={thumbStyle}>
-                  <img 
-                    src="/images/projects/minorityReport.gif" 
-                    alt="MinorityReport Project" 
-                    style={imgStyle}
-                  />
+                  <div style={{
+                    ...imgStyle,
+                    backgroundImage: "url('/images/projects/minorityReport.gif')", 
+                    backgroundSize: "cover",
+                    backgroundPosition: "center top"
+                  }}></div>
                   <div className="mask"></div>
                 </div>
               </div>
@@ -432,7 +475,15 @@ const Projects: React.FC = () => {
             <div id="minorityreport-dialog" className="white-popup zoom-anim-dialog mfp-hide">
               <h1>MinorityReport</h1>
               <h5>JavaScript, D3.js, HTML5, CSS3, Express, Node.js</h5>
-              <img src="/images/projects/MinorityReport.png" alt="MinorityReport Screenshot" />
+              <div style={{
+                width: '100%',
+                height: '300px',
+                backgroundImage: "url('/images/projects/MinorityReport.png')",
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                margin: '20px 0'
+              }} aria-label="MinorityReport Screenshot"></div>
               <h3>Data Visualization Dashboard</h3>
               <p>
                 An interactive data visualization dashboard that presents demographic and social data in an accessible and engaging format.

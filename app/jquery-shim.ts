@@ -4,6 +4,33 @@
 import { useEffect } from 'react';
 import handlePreloader from './preloader';
 
+// Define a type for jQuery
+type JQuery = {
+  (selector: string | Element): {
+    length: number;
+    Morphext: (options: {
+      animation: string;
+      separator: string;
+      speed: number;
+      complete: () => void;
+    }) => void;
+    on: (event: string, callback: (e?: Event) => void) => void;
+    toggleClass: (className: string) => void;
+    closest: (selector: string) => { length: number };
+    removeClass: (className: string) => void;
+  };
+  fn?: {
+    scrollspy?: unknown;
+  };
+};
+
+// Augment the Window interface
+declare global {
+  interface Window {
+    jQuery: JQuery;
+  }
+}
+
 export function useJQuery() {
   useEffect(() => {
     // Handle preloader first - this doesn't need jQuery
@@ -13,8 +40,8 @@ export function useJQuery() {
     if (typeof window !== 'undefined') {
       // Wait for jQuery to be available
       const jQueryInterval = setInterval(() => {
-        if ((window as any).jQuery) {
-          const $ = (window as any).jQuery;
+        if (window.jQuery) {
+          const $ = window.jQuery;
           // jQuery is loaded, clear the interval
           clearInterval(jQueryInterval);
           
@@ -71,32 +98,22 @@ export function useJQuery() {
             });
             
             // Click outside of mobile menu to close
-            $(document).on('click', function(e: any) {
-              if (!$(e.target).closest('.desktop-header-1, .mobile-header-1 .menu-icon').length) {
+            $(document).on('click', function(e: Event) {
+              if (!$(e.target as Element).closest('.desktop-header-1, .mobile-header-1 .menu-icon').length) {
                 $('body').removeClass('mobile-menu-visible');
               }
             });
             
-            // Try to initialize ScrollSpy safely - Disable for now as it's causing errors
-            // try {
-            //   if ($.fn.scrollspy) {
-            //     $('body').scrollspy({ target: '.scrollspy' });
-            //   }
-            // } catch (e) {
-            //   console.error('Error initializing ScrollSpy:', e);
-            // }
-            
-            // Simple alternative to ScrollSpy
-            const sections = document.querySelectorAll('section[id]');
-            const navItems = document.querySelectorAll('.scrollspy li');
-            
-            // Add scroll event listener
+            // Add scroll event listener for our custom scrollspy
             window.addEventListener('scroll', () => {
               let current = '';
               
+              const sections = document.querySelectorAll('section[id]');
+              const navItems = document.querySelectorAll('.scrollspy li');
+              
               sections.forEach((section) => {
                 const sectionTop = (section as HTMLElement).offsetTop;
-                const sectionHeight = (section as HTMLElement).offsetHeight;
+                // We're not using sectionHeight, so no need to calculate it
                 
                 if (window.scrollY >= sectionTop - 200) {
                   current = section.getAttribute('id') || '';

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import GHImage from './GHImage';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
