@@ -1,0 +1,66 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]  # Using 'master' since that's the branch name in your repo
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for deployment to GitHub Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+          
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Build
+        run: npm run build
+        
+      - name: Diagnostic - List build output
+        run: |
+          echo "Listing 'out' directory contents:"
+          ls -la out
+          echo "Checking for important files:"
+          find out -name "index.html" | sort
+        
+      - name: Prepare for deployment
+        run: |
+          # Create .nojekyll file to disable Jekyll processing
+          touch out/.nojekyll
+          
+          # Create a proper root index.html that redirects to the app
+          cat > out/index.html << 'EOL'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Hari Masoor - Full Stack Developer</title>
+            <meta http-equiv="refresh" content="0; URL=/portfolio-main">
+            <script>
+              window.location.href = "/portfolio-main";
+            </script>
+          </head>
+          <body>
+            <p>If you are not redirected automatically, follow this <a href="/portfolio-main">link to the portfolio</a>.</p>
+          </body>
+          </html>
+          EOL
+          
+          # Print the contents of the created index.html for verification
+          echo "Created index.html with contents:"
+          cat out/index.html
+        
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out
+          branch: gh-pages  # The branch the action should deploy to 
