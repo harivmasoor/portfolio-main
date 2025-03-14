@@ -2,6 +2,7 @@
   "name": "temp-nextjs",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://harivmasoor.github.io/portfolio-main",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
