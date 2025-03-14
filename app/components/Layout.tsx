@@ -21,6 +21,29 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <img src="/images/signatureBlue.png" alt="Hari Masoor" />
             </Link>
           </div>
+          
+          {/* Podcast App Link - Mobile */}
+          <div className="podcast-app-link d-inline-flex ml-auto">
+            <a 
+              href="https://app.harimasoor.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn btn-default rounded-pill"
+              style={{
+                background: 'linear-gradient(to right, #FF4C60, #FF8F88)',
+                color: 'white',
+                fontWeight: 'bold',
+                boxShadow: '0 5px 15px rgba(255, 76, 96, 0.4)',
+                padding: '8px 20px',
+                fontSize: '14px',
+                border: 'none',
+                marginRight: '15px',
+                transition: 'all 0.3s ease'
+              }}
+            >
+              Try My Podcast App!
+            </a>
+          </div>
         </div>
       </header>
 
@@ -31,6 +54,29 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <Link href="/">
             <img src="/images/signatureBlue.png" alt="Hari Masoor" />
           </Link>
+        </div>
+        
+        {/* Podcast App Link - Desktop */}
+        <div style={{ width: '100%', textAlign: 'center', margin: '20px 0' }}>
+          <a 
+            href="https://app.harimasoor.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="btn btn-default rounded-pill"
+            style={{
+              background: 'linear-gradient(to right, #FF4C60, #FF8F88)',
+              color: 'white',
+              fontWeight: 'bold',
+              boxShadow: '0 5px 15px rgba(255, 76, 96, 0.4)',
+              padding: '10px 25px',
+              fontSize: '15px',
+              border: 'none',
+              transition: 'all 0.3s ease',
+              animation: 'pulse 2s infinite'
+            }}
+          >
+            🎙️ Check Out My New Podcast App!
+          </a>
         </div>
         
         {/* main menu */}

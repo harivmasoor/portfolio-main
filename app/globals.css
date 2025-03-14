@@ -30,6 +30,22 @@ body {
   overflow-x: hidden;
 }
 
+/* Pulse animation for podcast app button */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 76, 96, 0.7);
+    transform: scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 76, 96, 0);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 76, 96, 0);
+    transform: scale(1);
+  }
+}
+
 /* Next.js specific images styles */
 img {
   max-width: 100%;

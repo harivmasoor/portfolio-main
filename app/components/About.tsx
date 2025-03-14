@@ -49,7 +49,7 @@ const About: React.FC = () => {
         </div>
         {/* row end */}
 
-        <div className="spacer" data-height="80"></div>
+        <div className="spacer" data-height="120"></div>
 
         {/* GitHub garden in a separate row with its own container */}
         <div className="row">
@@ -86,7 +86,7 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        <div className="spacer" data-height="40"></div>
+        <div className="spacer" data-height="100"></div>
         
         {/* Stats in its own section with proper spacing */}
         <div className="row">
