@@ -1,11 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import GHImage from './GHImage';
 
 // Add global jQuery type declaration
 declare global {
   interface Window {
-    jQuery: any;
+    jQuery: typeof jQuery;
+    $: typeof jQuery;
   }
 }
 
@@ -63,20 +66,20 @@ const Projects: React.FC = () => {
   const portfolioItemStyle = {
     height: '100%',
     display: 'flex',
-    flexDirection: 'column' as 'column',
+    flexDirection: 'column' as const,
   };
 
   const thumbStyle = {
-    position: 'relative' as 'relative',
-    overflow: 'hidden' as 'hidden',
+    position: 'relative' as const,
+    overflow: 'hidden' as const,
     height: '250px', // Fixed height for all thumbnails
   };
 
   const imgStyle = {
     width: '100%',
     height: '100%',
-    objectFit: 'cover' as 'cover',
-    objectPosition: 'center top' as 'center top',
+    objectFit: 'cover' as const,
+    objectPosition: 'center top' as const,
   };
 
   const gridItemStyle = {

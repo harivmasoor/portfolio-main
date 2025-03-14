@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import GHImage from './GHImage';
 
 const Hero: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
         {/* intro */}
         <div className="intro">
           {/* avatar image */}
-          <img 
+          <GHImage 
             width="200" 
             height="200"
             src="/images/masoor.jpeg" 
@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
           <h1 className="mb-2 mt-0">Hari Masoor</h1>
           <span className="location">San Jose, CA</span>
           <br />
-          <span style={{ display: 'block' }}>I'm a</span>
+          <span style={{ display: 'block' }}>I&apos;m a</span>
           <span className="text-rotating" style={{ display: 'block', marginTop: '5px' }}>
             Full-Stack Software Engineer, 
             Strategic Thinker, 

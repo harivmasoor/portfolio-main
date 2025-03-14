@@ -4,14 +4,14 @@ import React, { useState } from 'react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    InputName: '',
-    InputEmail: '',
-    InputSubject: '',
-    InputMessage: ''
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{ success?: boolean; message?: string } | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -24,30 +24,23 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus(null);
 
     try {
       // In a real implementation, you would handle the form submission to Netlify or another service
       // For now, we're just simulating a successful submission
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      setSubmitStatus({ 
-        success: true, 
-        message: 'Your message has been sent. Thank you!' 
-      });
+      setIsSubmitted(true);
       
       // Clear the form
       setFormData({
-        InputName: '',
-        InputEmail: '',
-        InputSubject: '',
-        InputMessage: ''
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
       });
     } catch (error) {
-      setSubmitStatus({ 
-        success: false, 
-        message: 'There was an error sending your message. Please try again.' 
-      });
+      console.error('Error submitting form:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -128,9 +121,9 @@ const Contact: React.FC = () => {
               onSubmit={handleSubmit}
             >
               <div className="messages mb-4">
-                {submitStatus && (
-                  <div className={`alert ${submitStatus.success ? 'alert-success' : 'alert-danger'}`}>
-                    {submitStatus.message}
+                {isSubmitted && (
+                  <div className="alert alert-success">
+                    Your message has been sent. Thank you!
                   </div>
                 )}
               </div>
@@ -142,11 +135,11 @@ const Contact: React.FC = () => {
                     <input 
                       type="text" 
                       className="form-control" 
-                      name="InputName" 
-                      id="InputName" 
+                      name="name" 
+                      id="name" 
                       placeholder="Your name" 
                       required 
-                      value={formData.InputName}
+                      value={formData.name}
                       onChange={handleChange}
                       style={{
                         borderRadius: '8px',
@@ -166,11 +159,11 @@ const Contact: React.FC = () => {
                     <input 
                       type="email" 
                       className="form-control" 
-                      id="InputEmail" 
-                      name="InputEmail" 
+                      id="email" 
+                      name="email" 
                       placeholder="Email address" 
                       required 
-                      value={formData.InputEmail}
+                      value={formData.email}
                       onChange={handleChange}
                       style={{
                         borderRadius: '8px',
@@ -190,11 +183,11 @@ const Contact: React.FC = () => {
                     <input 
                       type="text" 
                       className="form-control" 
-                      id="InputSubject" 
-                      name="InputSubject" 
+                      id="subject" 
+                      name="subject" 
                       placeholder="Subject" 
                       required 
-                      value={formData.InputSubject}
+                      value={formData.subject}
                       onChange={handleChange}
                       style={{
                         borderRadius: '8px',
@@ -212,13 +205,13 @@ const Contact: React.FC = () => {
                   {/* Message textarea */}
                   <div className="form-group mb-4">
                     <textarea 
-                      name="InputMessage" 
-                      id="InputMessage" 
+                      name="message" 
+                      id="message" 
                       className="form-control" 
                       rows={5} 
                       placeholder="Message" 
                       required 
-                      value={formData.InputMessage}
+                      value={formData.message}
                       onChange={handleChange}
                       style={{
                         borderRadius: '8px',

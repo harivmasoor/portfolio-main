@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 // This component will dynamically load stylesheets after determining if we're on GitHub Pages
 export default function StyleLoader() {

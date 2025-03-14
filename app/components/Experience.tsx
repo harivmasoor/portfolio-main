@@ -34,12 +34,12 @@ const Experience: React.FC = () => {
                   <p>Delivered the Keynote Speech at the World Blockchain Summit 2022 at Atlantis, Dubai. Covered the future of NFTs with the largest publication in the Blockchain Industry. </p>
                   <div className="spacer" data-height="15"></div>
                   <span className="icon icon-link"></span>
-                  <a href="https://www.linkedin.com/in/harimasoor/overlay/1635506473916/single-media-viewer/?profileId=ACoAABXavEYBo6_4ZGoEzyTQNKUMEV3wBaugC7g" target="_blank">
+                  <a href="https://www.linkedin.com/in/harimasoor/overlay/1635506473916/single-media-viewer/?profileId=ACoAABXavEYBo6_4ZGoEzyTQNKUMEV3wBaugC7g" target="_blank" rel="noopener noreferrer">
                     Keynote Speech
                   </a>
                   <div className="spacer" data-height="15"></div>
                   <span className="icon icon-link"></span>
-                  <a href="https://www.linkedin.com/in/harimasoor/overlay/1635513493928/single-media-viewer/?profileId=ACoAABXavEYBo6_4ZGoEzyTQNKUMEV3wBaugC7g" target="_blank">
+                  <a href="https://www.linkedin.com/in/harimasoor/overlay/1635513493928/single-media-viewer/?profileId=ACoAABXavEYBo6_4ZGoEzyTQNKUMEV3wBaugC7g" target="_blank" rel="noopener noreferrer">
                     Sponsored Webinar
                   </a>
                 </div>
@@ -62,7 +62,7 @@ const Experience: React.FC = () => {
                   <p>Delivered most viewed Carbon Black Threat Intelligence demo on Youtube. Worked with technical and non technical stakeholder on definining requirements.</p>
                   <div className="spacer" data-height="15"></div>
                   <span className="icon icon-link"></span>
-                  <a href="https://www.youtube.com/watch?v=5G2CCH6z-sY&t=136s" target="_blank">
+                  <a href="https://www.youtube.com/watch?v=5G2CCH6z-sY&t=136s" target="_blank" rel="noopener noreferrer">
                     Carbon Black Threat Intelligence Demo
                   </a>
                 </div>
@@ -78,7 +78,7 @@ const Experience: React.FC = () => {
                 <div className="content">
                   <span className="time">2023</span>
                   <h3 className="title">App Academy Open</h3>
-                  <p>Graduated from App Academy's accelerated flagship Software Engineering track, focusing on full-stack development with a 3% acceptance rate. Completed 1000+ hours of immersive full-stack development curriculum.</p>
+                  <p>Graduated from App Academy&apos;s accelerated flagship Software Engineering track, focusing on full-stack development with a 3% acceptance rate. Completed 1000+ hours of immersive full-stack development curriculum.</p>
                 </div>
               </div>
 

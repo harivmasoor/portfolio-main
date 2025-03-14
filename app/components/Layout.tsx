@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import GHImage from './GHImage';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -18,7 +20,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           {/* logo image */}
           <div className="site-logo">
             <Link href="/">
-              <img src="/images/signatureBlue.png" alt="Hari Masoor" />
+              <GHImage src="/images/signatureBlue.png" alt="Hari Masoor" width={150} height={36} />
             </Link>
           </div>
           
@@ -52,7 +54,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         {/* logo image */}
         <div className="site-logo">
           <Link href="/">
-            <img src="/images/signatureBlue.png" alt="Hari Masoor" />
+            <GHImage src="/images/signatureBlue.png" alt="Hari Masoor" width={150} height={36} />
           </Link>
         </div>
         

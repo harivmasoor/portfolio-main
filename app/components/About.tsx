@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import GHImage from './GHImage';
+import Image from 'next/image';
 
 const About: React.FC = () => {
   return (
@@ -15,9 +17,10 @@ const About: React.FC = () => {
           <div className="col-md-3">
             <div className="text-center text-md-left">
               {/* avatar image */}
-              <img 
+              <GHImage 
                 className="headshot" 
-                width="150px" 
+                width={150}
+                height={150}
                 src="/images/masoor.jpeg" 
                 alt="Hari Masoor"
                 style={{ 
@@ -26,8 +29,14 @@ const About: React.FC = () => {
                   transition: 'transform 0.3s ease',
                   cursor: 'pointer'
                 }}
-                onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
-                onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                onMouseOver={(e) => {
+                  // @ts-ignore - TypeScript doesn't know about style on HTMLImageElement
+                  e.currentTarget.style.transform = 'scale(1.03)';
+                }}
+                onMouseOut={(e) => {
+                  // @ts-ignore
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
               />
             </div>
             <div className="spacer d-md-none d-lg-none" data-height="30"></div>
@@ -63,21 +72,29 @@ const About: React.FC = () => {
                 className="github-garden-link"
                 title="View on GitHub: harivmasoor"
               >
-                <img 
+                <Image 
                   src="https://ghchart.rshah.org/harivmasoor" 
                   alt="Github Garden for harivmasoor"
+                  width={1000}
+                  height={150}
+                  unoptimized
                   style={{
                     width: '100%',
+                    height: 'auto',
                     borderRadius: '8px',
                     boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)',
                     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   }}
                   onMouseOver={(e) => {
+                    // @ts-ignore
                     e.currentTarget.style.transform = 'translateY(-5px)';
+                    // @ts-ignore
                     e.currentTarget.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.15)';
                   }}
                   onMouseOut={(e) => {
+                    // @ts-ignore
                     e.currentTarget.style.transform = 'translateY(0)';
+                    // @ts-ignore
                     e.currentTarget.style.boxShadow = '0 3px 10px rgba(0, 0, 0, 0.1)';
                   }}
                 />
