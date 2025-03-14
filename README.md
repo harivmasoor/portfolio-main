@@ -1,24 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hari Masoor Portfolio
+
+A modern, responsive portfolio website built with Next.js, React, and TypeScript.
+
+## Project Structure
+
+This project is structured as follows:
+
+- `app/`: Main application code
+  - `components/`: React components for each section of the portfolio
+    - `Hero.tsx`: Home/Hero section
+    - `About.tsx`: About section
+    - `Skills.tsx`: Skills and technologies section
+    - `Experience.tsx`: Experience and education section
+    - `Projects.tsx`: Projects/Work showcase
+    - `Contact.tsx`: Contact form and information
+    - `Footer.tsx`: Page footer
+    - `Layout.tsx`: Layout wrapper with navigation
+  - `page.tsx`: Main page component that integrates all sections
+  - `layout.tsx`: Root layout with metadata and global scripts
+  - `globals.css`: Global CSS styles
+  - `jquery-shim.ts`: jQuery compatibility shim
+- `public/`: Static assets
+  - `css/`: CSS stylesheets
+  - `images/`: Image assets
+  - `js/`: JavaScript files
+    - `preloader.js`: Preloader management script
+
+## Technology Stack
+
+- **Next.js**: React framework for server-rendered applications
+- **React**: UI library
+- **TypeScript**: Type-safe JavaScript
+- **Bootstrap**: CSS framework for responsive design
+- **jQuery**: Used for certain animations and effects
+- **Font Awesome**: Icon library
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Run the development server:
+   ```
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Build for Production
+
+```
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This site can be deployed to various platforms such as Vercel, Netlify, or any other hosting service that supports Next.js applications.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## License
+
+All rights reserved.
+
+## Features
+
+- Responsive design
+- Modern React-based frontend with Next.js
+- Fast page loads with server-side rendering
+- Optimized for SEO
+
+## Built With
+
+- [Next.js](https://nextjs.org/) - The React framework
+- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+
+## Acknowledgments
+
+* Original design and content by Hari Masoor
 
 ## Learn More
 
