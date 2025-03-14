@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { getAssetPath } from '../utils/paths';
 
 // Add global jQuery type declaration
 declare global {
@@ -180,7 +181,7 @@ const Projects: React.FC = () => {
                 <div className="thumb" style={thumbStyle}>
                   <div style={{
                     ...imgStyle,
-                    backgroundImage: "url('/images/projects/BudgetBuddy1.gif')", 
+                    backgroundImage: `url('${getAssetPath('/images/projects/BudgetBuddy1.gif')}')`, 
                     backgroundSize: "cover",
                     backgroundPosition: "center top"
                   }}></div>
@@ -205,7 +206,7 @@ const Projects: React.FC = () => {
               <div style={{
                 width: '100%',
                 height: '300px',
-                backgroundImage: "url('/images/projects/BudgetBuddyImage.png')",
+                backgroundImage: `url('${getAssetPath('/images/projects/BudgetBuddyImage.png')}')`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -215,7 +216,7 @@ const Projects: React.FC = () => {
               <div style={{
                 width: '100%',
                 height: '300px',
-                backgroundImage: "url('/images/projects/BudgetBuddyMobile.jpeg')",
+                backgroundImage: `url('${getAssetPath('/images/projects/BudgetBuddyMobile.jpeg')}')`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -260,7 +261,7 @@ const Projects: React.FC = () => {
                 <div className="thumb" style={thumbStyle}>
                   <div style={{
                     ...imgStyle,
-                    backgroundImage: "url('/images/projects/localVoices.gif')", 
+                    backgroundImage: `url('${getAssetPath('/images/projects/localVoices.gif')}')`, 
                     backgroundSize: "cover",
                     backgroundPosition: "center top"
                   }}></div>
@@ -279,7 +280,7 @@ const Projects: React.FC = () => {
               <div style={{
                 width: '100%',
                 height: '300px',
-                backgroundImage: "url('/images/projects/localVoices.gif')",
+                backgroundImage: `url('${getAssetPath('/images/projects/localVoices.gif')}')`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -328,7 +329,7 @@ const Projects: React.FC = () => {
                 <div className="thumb" style={thumbStyle}>
                   <div style={{
                     ...imgStyle,
-                    backgroundImage: "url('/images/projects/podify.gif')", 
+                    backgroundImage: `url('${getAssetPath('/images/projects/podify.gif')}')`, 
                     backgroundSize: "cover",
                     backgroundPosition: "center top"
                   }}></div>
@@ -342,7 +343,7 @@ const Projects: React.FC = () => {
               <div style={{
                 width: '100%',
                 height: '300px',
-                backgroundImage: "url('/images/projects/Podify.png')",
+                backgroundImage: `url('${getAssetPath('/images/projects/Podify.png')}')`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -396,7 +397,7 @@ const Projects: React.FC = () => {
                 <div className="thumb" style={thumbStyle}>
                   <div style={{
                     ...imgStyle,
-                    backgroundImage: "url('/images/projects/HabitCrusher.gif')", 
+                    backgroundImage: `url('${getAssetPath('/images/projects/HabitCrusher.gif')}')`, 
                     backgroundSize: "cover",
                     backgroundPosition: "center top"
                   }}></div>
@@ -410,7 +411,7 @@ const Projects: React.FC = () => {
               <div style={{
                 width: '100%',
                 height: '300px',
-                backgroundImage: "url('/images/projects/HabitCrusher.jpeg')",
+                backgroundImage: `url('${getAssetPath('/images/projects/HabitCrusher.jpeg')}')`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -464,7 +465,7 @@ const Projects: React.FC = () => {
                 <div className="thumb" style={thumbStyle}>
                   <div style={{
                     ...imgStyle,
-                    backgroundImage: "url('/images/projects/minorityReport.gif')", 
+                    backgroundImage: `url('${getAssetPath('/images/projects/minorityReport.gif')}')`, 
                     backgroundSize: "cover",
                     backgroundPosition: "center top"
                   }}></div>
@@ -478,7 +479,7 @@ const Projects: React.FC = () => {
               <div style={{
                 width: '100%',
                 height: '300px',
-                backgroundImage: "url('/images/projects/MinorityReport.png')",
+                backgroundImage: `url('${getAssetPath('/images/projects/MinorityReport.png')}')`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
