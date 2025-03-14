@@ -6,6 +6,8 @@ const nextConfig = {
     unoptimized: true,
   },
   assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio-main' : '',
+  // Trailing slash ensures proper relative path resolution
+  trailingSlash: true,
   
   // Disable ESLint during production builds
   eslint: {
