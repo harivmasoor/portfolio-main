@@ -1,7 +1,7 @@
 import './globals.css';
 import Layout from './components/Layout';
 import { Metadata } from 'next';
-import Script from 'next/script';
+import StyleLoader from './components/StyleLoader';
 import { getAssetPath } from './utils/paths';
 
 export const metadata: Metadata = {
@@ -25,13 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Use process.env.NODE_ENV to determine if we're in production */}
-        <link rel="stylesheet" href={getAssetPath('/css/style.css')} />
-        <link rel="stylesheet" href={getAssetPath('/css/all.min.css')} />
-        <link rel="stylesheet" href={getAssetPath('/css/simple-line-icons.css')} />
-        <link rel="stylesheet" href={getAssetPath('/css/bootstrap.min.css')} />
-        <link rel="stylesheet" href={getAssetPath('/css/magnific-popup.css')} />
-        <link rel="stylesheet" href={getAssetPath('/css/animate.css')} />
+        {/* Stylesheets will be loaded dynamically by the StyleLoader component */}
       </head>
       <body>
         {/* Preloader */}
@@ -46,12 +40,8 @@ export default function RootLayout({
         
         <Layout>{children}</Layout>
         
-        {/* Scripts */}
-        <Script src={getAssetPath('/js/jquery-1.12.3.min.js')} strategy="beforeInteractive" />
-        <Script src={getAssetPath('/js/jquery.appear.min.js')} strategy="afterInteractive" />
-        <Script src={getAssetPath('/js/bootstrap.min.js')} strategy="afterInteractive" />
-        <Script src={getAssetPath('/js/jquery.magnific-popup.min.js')} strategy="afterInteractive" />
-        <Script src={getAssetPath('/js/preloader.js')} strategy="afterInteractive" />
+        {/* StyleLoader will dynamically add all scripts and styles */}
+        <StyleLoader />
       </body>
     </html>
   );

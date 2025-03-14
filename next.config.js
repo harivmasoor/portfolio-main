@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  // Explicitly set basePath and assetPrefix for production
-  basePath: process.env.NODE_ENV === 'production' ? '/portfolio-main' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio-main' : '',
+  // Custom domain doesn't need basePath or assetPrefix
+  basePath: '',
+  assetPrefix: '',
   
   // Make images work with static export
   images: {
