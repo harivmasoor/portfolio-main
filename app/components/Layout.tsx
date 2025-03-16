@@ -26,7 +26,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           {/* Podcast App Link - Mobile */}
           <div className="podcast-app-link d-inline-flex ml-auto">
             <a 
-              href="https://app.harimasoor.com" 
+              href="https://talk.harimasoor.com" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn btn-default rounded-pill"
@@ -60,7 +60,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         {/* Podcast App Link - Desktop */}
         <div style={{ width: '100%', textAlign: 'center', margin: '20px 0' }}>
           <a 
-            href="https://app.harimasoor.com" 
+            href="https://talk.harimasoor.com" 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn btn-default rounded-pill"
