@@ -94,8 +94,8 @@ const Experience: React.FC = () => {
               {/* timeline item */}
               <div className="timeline-container wow fadeInUp" data-wow-delay="0.4s">
                 <div className="content">
-                  <span className="time">2019</span>
-                  <h3 className="title">University of California, Berkeley</h3>
+                  <span className="time">2025</span>
+                  <h3 className="title">MSCS GA Tech</h3>
                   <p>Extension student with coursework in the Computer Science dept focusing on Data Science, Machine Learning, and Computer Networking</p>
                 </div>
               </div>
@@ -104,8 +104,8 @@ const Experience: React.FC = () => {
               <div className="timeline-container wow fadeInUp" data-wow-delay="0.4s">
                 <div className="content">
                   <span className="time">2010-2014</span>
-                  <h3 className="title">University of California, Santa Cruz</h3>
-                  <p>B.S. Chemistry</p>
+                  <h3 className="title">BS GA Tech</h3>
+                  <p>B.S. ISyE</p>
                 </div>
               </div>
             </div>
