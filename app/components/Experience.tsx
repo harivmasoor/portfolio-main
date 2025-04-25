@@ -83,20 +83,10 @@ const Experience: React.FC = () => {
               </div>
 
               {/* timeline item */}
-              <div className="timeline-container wow fadeInUp" data-wow-delay="0.2s">
-                <div className="content">
-                  <span className="time">2022</span>
-                  <h3 className="title">Harvard Cybersecurity</h3>
-                  <p>Certification in Cybersecurity from Harvard focusing on cryptography, operating system security, and the CIA triad.</p>
-                </div>
-              </div>
-
-              {/* timeline item */}
               <div className="timeline-container wow fadeInUp" data-wow-delay="0.4s">
                 <div className="content">
                   <span className="time">2025</span>
                   <h3 className="title">MSCS GA Tech</h3>
-                  <p>Extension student with coursework in the Computer Science dept focusing on Data Science, Machine Learning, and Computer Networking</p>
                 </div>
               </div>
 
@@ -105,7 +95,7 @@ const Experience: React.FC = () => {
                 <div className="content">
                   <span className="time">2010-2014</span>
                   <h3 className="title">BS GA Tech</h3>
-                  <p>B.S. ISyE</p>
+                  <p>ISyE</p>
                 </div>
               </div>
             </div>
