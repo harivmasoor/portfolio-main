@@ -1,104 +1,392 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import GHImage from './GHImage';
 
 const Hero: React.FC = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  const roles = [
+    'Full-Stack Engineer',
+    'Strategic Thinker', 
+    'Proven Hacker',
+    'Bug Hunter',
+    'Problem Solver'
+  ];
+
+  const [currentRole, setCurrentRole] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section id="home" className="home d-flex align-items-center">
-      <div className="container">
+    <section id="home" className="home d-flex align-items-center" style={{
+      background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      {/* Animated Background Elements */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflow: 'hidden',
+        pointerEvents: 'none',
+      }}>
+        {/* Gradient Orbs */}
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          left: '10%',
+          width: '400px',
+          height: '400px',
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+          animation: 'float 8s ease-in-out infinite',
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '10%',
+          right: '10%',
+          width: '350px',
+          height: '350px',
+          background: 'radial-gradient(circle, rgba(244, 114, 182, 0.3) 0%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+          animation: 'float 10s ease-in-out infinite reverse',
+        }} />
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '500px',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(80px)',
+          animation: 'float 12s ease-in-out infinite',
+        }} />
+        
+        {/* Grid Pattern */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `
+            linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px',
+        }} />
+      </div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* intro */}
-        <div className="intro">
-          {/* avatar image */}
-          <GHImage 
-            width="200" 
-            height="200"
-            src="/images/masoor.jpeg" 
-            alt="Hari Masoor" 
-            className="mb-4 headshot" 
-            style={{
-              margin: '0 auto',
+        <div className="intro" style={{
+          opacity: isLoaded ? 1 : 0,
+          transform: isLoaded ? 'translateY(0)' : 'translateY(30px)',
+          transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+        }}>
+          {/* Avatar with Glow Ring */}
+          <div style={{
+            position: 'relative',
+            marginBottom: '2rem',
+          }}>
+            {/* Animated Ring */}
+            <div style={{
+              position: 'absolute',
+              top: '-10px',
+              left: '-10px',
+              right: '-10px',
+              bottom: '-10px',
               borderRadius: '50%',
-              objectFit: 'cover',
-              width: '200px',
-              height: '200px'
-            }}
-          />
+              background: 'linear-gradient(135deg, #6366f1 0%, #f472b6 50%, #06b6d4 100%)',
+              animation: 'rotate-border 3s linear infinite',
+              opacity: 0.8,
+            }} />
+            <div style={{
+              position: 'absolute',
+              top: '-8px',
+              left: '-8px',
+              right: '-8px',
+              bottom: '-8px',
+              borderRadius: '50%',
+              background: '#0f172a',
+            }} />
+            <GHImage 
+              width="200" 
+              height="200"
+              src="/images/masoor.jpeg" 
+              alt="Hari Masoor" 
+              className="headshot" 
+              style={{
+                position: 'relative',
+                margin: '0 auto',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                width: '200px',
+                height: '200px',
+                border: '4px solid #1e293b',
+                zIndex: 1,
+              }}
+            />
+            {/* Status Indicator */}
+            <div style={{
+              position: 'absolute',
+              bottom: '15px',
+              right: '15px',
+              width: '24px',
+              height: '24px',
+              background: '#10b981',
+              borderRadius: '50%',
+              border: '4px solid #0f172a',
+              zIndex: 2,
+              boxShadow: '0 0 20px rgba(16, 185, 129, 0.6)',
+            }} />
+          </div>
 
-          {/* info */}
-          <h1 className="mb-2 mt-0">Hari Masoor</h1>
-          <span className="location">San Jose, CA</span>
-          <br />
-          <span style={{ display: 'block' }}>I&apos;m a</span>
-          <span className="text-rotating" style={{ display: 'block', marginTop: '5px' }}>
-            Full-Stack Software Engineer, 
-            Strategic Thinker, 
-            Proven Hacker, 
-            Bug Hunter
-          </span>
+          {/* Name with Gradient */}
+          <h1 style={{
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+            fontWeight: 800,
+            marginBottom: '0.5rem',
+            background: 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #ffffff 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            letterSpacing: '-0.02em',
+          }}>
+            Hari Masoor
+          </h1>
+          
+          {/* Location Badge */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '8px 20px',
+            background: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: '50px',
+            marginBottom: '1.5rem',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(10px)',
+          }}>
+            <span style={{ fontSize: '1rem' }}>📍</span>
+            <span style={{ color: '#94a3b8', fontSize: '0.95rem' }}>San Jose, CA</span>
+          </div>
 
-          {/* social icons */}
-          <ul className="social-icons light list-inline mb-0 mt-4">
-            <li className="list-inline-item">
-              <a href="mailto:harimasoor@gmail.com">
-                <i className="fa fa-envelope"></i>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://github.com/harivmasoor/" target="_blank">
-                <i className="fab fa-github"></i>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://www.linkedin.com/in/harimasoor/" target="_blank">
-                <i className="fab fa-linkedin"></i>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://angel.co/u/hari-masoor" target="_blank">
-                <i className="fab fa-angellist"></i>
-              </a>
-            </li>
+          {/* Animated Role */}
+          <div style={{ marginBottom: '2rem' }}>
+            <span style={{ 
+              color: '#94a3b8', 
+              fontSize: '1.1rem',
+              display: 'block',
+              marginBottom: '0.5rem',
+            }}>
+              I&apos;m a
+            </span>
+            <div style={{
+              height: '50px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+              <span 
+                key={currentRole}
+                style={{
+                  fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                  fontWeight: 700,
+                  background: 'linear-gradient(135deg, #6366f1 0%, #f472b6 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  animation: 'fadeInUp 0.5s ease-out',
+                }}
+              >
+                {roles[currentRole]}
+              </span>
+            </div>
+          </div>
+
+          {/* Social Icons */}
+          <ul className="social-icons light list-inline mb-0 mt-4" style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '1rem',
+            listStyle: 'none',
+            padding: 0,
+          }}>
+            {[
+              { href: 'mailto:harimasoor@gmail.com', icon: 'fa-envelope', color: '#f472b6' },
+              { href: 'https://github.com/harivmasoor/', icon: 'fab fa-github', color: '#ffffff' },
+              { href: 'https://www.linkedin.com/in/harimasoor/', icon: 'fab fa-linkedin', color: '#0077b5' },
+              { href: 'https://angel.co/u/hari-masoor', icon: 'fab fa-angellist', color: '#000000' },
+            ].map((social, index) => (
+              <li key={index} className="list-inline-item">
+                <a 
+                  href={social.href}
+                  target={social.href.startsWith('mailto') ? undefined : '_blank'}
+                  rel={social.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '50%',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    color: '#ffffff',
+                    fontSize: '1.3rem',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    backdropFilter: 'blur(10px)',
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = 'linear-gradient(135deg, #6366f1 0%, #f472b6 100%)';
+                    e.currentTarget.style.transform = 'translateY(-5px) scale(1.1)';
+                    e.currentTarget.style.boxShadow = '0 20px 40px rgba(99, 102, 241, 0.4)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
+                  <i className={social.icon.includes('fab') ? social.icon : `fa ${social.icon}`}></i>
+                </a>
+              </li>
+            ))}
           </ul>
+
+          {/* CTA Button */}
+          <div style={{ marginTop: '2.5rem' }}>
+            <a 
+              href="#works"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '16px 32px',
+                background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+                color: '#ffffff',
+                borderRadius: '50px',
+                fontWeight: 600,
+                fontSize: '1rem',
+                textDecoration: 'none',
+                boxShadow: '0 10px 40px rgba(99, 102, 241, 0.4)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px)';
+                e.currentTarget.style.boxShadow = '0 20px 50px rgba(99, 102, 241, 0.5)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 10px 40px rgba(99, 102, 241, 0.4)';
+              }}
+            >
+              View My Work
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* scroll down mouse wheel */}
-      <div className="scroll-down">
-        <a href="#about" className="mouse-wrapper">
+      {/* Scroll Down Indicator */}
+      <div className="scroll-down" style={{ 
+        position: 'absolute',
+        bottom: '40px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+      }}>
+        <a href="#about" className="mouse-wrapper" style={{ color: 'rgba(255,255,255,0.7)' }}>
           <span>Scroll Down</span>
-          <span className="mouse">
-            <span className="wheel"></span>
+          <span className="mouse" style={{ borderColor: 'rgba(255,255,255,0.5)' }}>
+            <span className="wheel" style={{ background: 'rgba(255,255,255,0.8)' }}></span>
           </span>
         </a>
       </div>
 
-      {/* parallax layers */}
-      <div className="parallax" data-relative-input="true">
-        <svg width="27" height="29" data-depth="0.3" className="layer p1" xmlns="http://www.w3.org/2000/svg"><path d="M21.15625.60099c4.37954 3.67487 6.46544 9.40612 5.47254 15.03526-.9929 5.62915-4.91339 10.30141-10.2846 12.25672-5.37122 1.9553-11.3776.89631-15.75715-2.77856l2.05692-2.45134c3.50315 2.93948 8.3087 3.78663 12.60572 2.22284 4.297-1.5638 7.43381-5.30209 8.22768-9.80537.79387-4.50328-.8749-9.08872-4.37803-12.02821L21.15625.60099z" fill="#FFD15C" fillRule="evenodd"/></svg>
-
-        <svg width="26" height="26" data-depth="0.2" className="layer p2" xmlns="http://www.w3.org/2000/svg"><path d="M13 3.3541L2.42705 24.5h21.1459L13 3.3541z" stroke="#FF4C60" strokeWidth="3" fill="none" fillRule="evenodd"/></svg>
-
-        <svg width="30" height="25" data-depth="0.3" className="layer p3" xmlns="http://www.w3.org/2000/svg"><path d="M.1436 8.9282C3.00213 3.97706 8.2841.92763 14.00013.92796c5.71605.00032 10.9981 3.04992 13.85641 8 2.8583 4.95007 2.8584 11.0491-.00014 16.00024l-2.77128-1.6c2.28651-3.96036 2.28631-8.84002.00011-12.8002-2.2862-3.96017-6.5124-6.40017-11.08513-6.4-4.57271.00018-8.79872 2.43984-11.08524 6.4002l-2.77128-1.6z" fill="#44D7B6" fillRule="evenodd"/></svg>
-
-        <svg width="15" height="23" data-depth="0.6" className="layer p4" xmlns="http://www.w3.org/2000/svg"><rect transform="rotate(30 9.86603 10.13397)" x="7" width="3" height="25" rx="1.5" fill="#FFD15C" fillRule="evenodd"/></svg>
-
-        <svg width="15" height="23" data-depth="0.2" className="layer p5" xmlns="http://www.w3.org/2000/svg"><rect transform="rotate(30 9.86603 10.13397)" x="7" width="3" height="25" rx="1.5" fill="#6C6CE5" fillRule="evenodd"/></svg>
-
-        <svg width="49" height="17" data-depth="0.5" className="layer p6" xmlns="http://www.w3.org/2000/svg"><g fill="#FF4C60" fillRule="evenodd"><path d="M.5 16.5c0-5.71709 2.3825-10.99895 6.25-13.8567 3.8675-2.85774 8.6325-2.85774 12.5 0C23.1175 5.50106 25.5 10.78292 25.5 16.5H23c0-4.57303-1.90625-8.79884-5-11.08535-3.09375-2.28652-6.90625-2.28652-10 0C4.90625 7.70116 3 11.92697 3 16.5H.5z"/><path d="M23.5 16.5c0-5.71709 2.3825-10.99895 6.25-13.8567 3.8675-2.85774 8.6325-2.85774 12.5 0C46.1175 5.50106 48.5 10.78292 48.5 16.5H46c0-4.57303-1.90625-8.79884-5-11.08535-3.09375-2.28652-6.90625-2.28652-10 0-3.09375 2.28651-5 6.51232-5 11.08535h-2.5z"/></g></svg>
-
-        <svg width="26" height="26" data-depth="0.4" className="layer p7" xmlns="http://www.w3.org/2000/svg"><path d="M13 22.6459L2.42705 1.5h21.1459L13 22.6459z" stroke="#FFD15C" strokeWidth="3" fill="none" fillRule="evenodd"/></svg>
-
-        <svg width="19" height="21" data-depth="0.3" className="layer p8" xmlns="http://www.w3.org/2000/svg"><rect transform="rotate(-40 6.25252 10.12626)" x="7" width="3" height="25" rx="1.5" fill="#6C6CE5" fillRule="evenodd"/></svg>
-
-        <svg width="30" height="25" data-depth="0.3" data-depth-y="-1.30" className="layer p9" xmlns="http://www.w3.org/2000/svg"><path d="M29.8564 16.0718c-2.85854 4.95114-8.1405 8.00057-13.85654 8.00024-5.71605-.00032-10.9981-3.04992-13.85641-8-2.8583-4.95007-2.8584-11.0491.00014-16.00024l2.77128 1.6c-2.28651 3.96036-2.28631 8.84002-.00011 12.8002 2.2862 3.96017 6.5124 6.40017 11.08513 6.4 4.57271-.00018 8.79872-2.43984 11.08524-6.4002l2.77128 1.6z" fill="#6C6CE5" fillRule="evenodd"/></svg>
-
-        <svg width="47" height="29" data-depth="0.2" className="layer p10" xmlns="http://www.w3.org/2000/svg"><g fill="#44D7B6" fillRule="evenodd"><path d="M46.78878 17.19094c-1.95535 5.3723-6.00068 9.52077-10.61234 10.8834-4.61167 1.36265-9.0893-.26708-11.74616-4.27524-2.65686-4.00817-3.08917-9.78636-1.13381-15.15866l2.34923.85505c-1.56407 4.29724-1.2181 8.92018.90705 12.12693 2.12514 3.20674 5.70772 4.5107 9.39692 3.4202 3.68921-1.0905 6.92581-4.40949 8.48988-8.70673l2.34923.85505z"/><path d="M25.17585 9.32448c-1.95535 5.3723-6.00068 9.52077-10.61234 10.8834-4.61167 1.36264-9.0893-.26708-11.74616-4.27525C.16049 11.92447-.27182 6.14628 1.68354.77398l2.34923.85505c-1.56407 4.29724-1.2181 8.92018.90705 12.12692 2.12514 3.20675 5.70772 4.5107 9.39692 3.4202 3.68921-1.0905 6.92581-4.40948 8.48988-8.70672l2.34923.85505z"/></g></svg>
-
-        <svg width="33" height="20" data-depth="0.5" className="layer p11" xmlns="http://www.w3.org/2000/svg"><path d="M32.36774.34317c.99276 5.63023-1.09332 11.3614-5.47227 15.03536-4.37895 3.67396-10.3855 4.73307-15.75693 2.77837C5.76711 16.2022 1.84665 11.53014.8539 5.8999l3.15139-.55567c.7941 4.50356 3.93083 8.24147 8.22772 9.8056 4.29688 1.56413 9.10275.71673 12.60554-2.2227C28.34133 9.98771 30.01045 5.4024 29.21635.89884l3.15139-.55567z" fill="#FFD15C" fillRule="evenodd"/></svg>
+      {/* Decorative Floating Elements */}
+      <div className="parallax" data-relative-input="true" style={{ pointerEvents: 'none' }}>
+        <svg width="60" height="60" data-depth="0.3" className="layer" style={{ position: 'absolute', top: '15%', left: '8%', opacity: 0.6 }} viewBox="0 0 60 60">
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#6366f1" />
+              <stop offset="100%" stopColor="#f472b6" />
+            </linearGradient>
+          </defs>
+          <circle cx="30" cy="30" r="25" fill="none" stroke="url(#grad1)" strokeWidth="2" />
+        </svg>
+        
+        <svg width="40" height="40" data-depth="0.5" className="layer" style={{ position: 'absolute', top: '25%', right: '15%', opacity: 0.6 }} viewBox="0 0 40 40">
+          <polygon points="20,5 35,35 5,35" fill="none" stroke="#f472b6" strokeWidth="2" />
+        </svg>
+        
+        <svg width="30" height="30" data-depth="0.2" className="layer" style={{ position: 'absolute', bottom: '30%', left: '15%', opacity: 0.5 }} viewBox="0 0 30 30">
+          <rect x="5" y="5" width="20" height="20" fill="none" stroke="#06b6d4" strokeWidth="2" transform="rotate(45 15 15)" />
+        </svg>
+        
+        <svg width="50" height="50" data-depth="0.4" className="layer" style={{ position: 'absolute', bottom: '20%', right: '10%', opacity: 0.5 }} viewBox="0 0 50 50">
+          <path d="M25 5 L45 25 L25 45 L5 25 Z" fill="none" stroke="#10b981" strokeWidth="2" />
+        </svg>
+        
+        <div data-depth="0.6" className="layer" style={{ 
+          position: 'absolute', 
+          top: '60%', 
+          left: '5%',
+          width: '8px',
+          height: '8px',
+          background: '#f472b6',
+          borderRadius: '50%',
+          boxShadow: '0 0 20px rgba(244, 114, 182, 0.6)',
+        }} />
+        
+        <div data-depth="0.3" className="layer" style={{ 
+          position: 'absolute', 
+          top: '10%', 
+          right: '25%',
+          width: '6px',
+          height: '6px',
+          background: '#6366f1',
+          borderRadius: '50%',
+          boxShadow: '0 0 15px rgba(99, 102, 241, 0.6)',
+        }} />
       </div>
+
+      <style jsx>{`
+        @keyframes rotate-border {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0) scale(1); }
+          50% { transform: translateY(-20px) scale(1.05); }
+        }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 };
 
-export default Hero; 
+export default Hero;
